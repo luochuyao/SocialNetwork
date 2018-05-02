@@ -1,0 +1,658 @@
+<!doctype html>
+<!--[if IE 7 ]>    <html lang="en-gb" class="isie ie7 oldie no-js"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en-gb" class="isie ie8 oldie no-js"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en-gb" class="isie ie9 no-js"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en-gb" class="no-js">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!--[if lt IE 9]> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <![endif]-->
+    <title>Social Network Analysis</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lte IE 8]>
+		<script type="text/javascript" src="http://explorercanvas.googlecode.com/svn/trunk/excanvas.js"></script>
+	<![endif]-->
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../static/css/isotope.css" media="screen" />
+    <link rel="stylesheet" href="../static/js/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../static/css/da-slider.css" />
+    <!-- Owl Carousel Assets -->
+    <link href="../static/js/owl-carousel/owl.carousel.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/styles.css" />
+    <!-- Font Awesome -->
+    <link href="../static/font/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="navbar navbar-inverse" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="#" class="navbar-brand scroll-top logo"><b>Social Network</b></a>
+                </div>
+                <!--/.navbar-header-->
+                <div id="main-nav" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav" id="mainNav">
+                        {% if currentPage == 'home' %}
+                        <li class="active"><a href="#home" class="scroll-link">Home</a></li>
+                        <li><a href="#process" class="scroll-link">Process</a></li>
+                        <li><a href="#operation" class="scroll-link">Operation</a></li>
+                        {% else %}
+                            {% if currentPage == 'operation'%}
+                                <li><a href="#home" class="scroll-link">Home</a></li>
+                                <li><a href="#process" class="scroll-link">Process</a></li>
+                                <li class="active"><a href="#operation" class="scroll-link">Operation</a></li>
+                            {% endif %}
+                        {% endif %}
+
+
+                        {% if isGetFile %}
+                        <li><a href="#fileInformation" class="scroll-link">File information</a></li>
+                        {% endif %}
+                        {% if isAnalysis == True %}
+                        <li><a href="#skills" class="scroll-link">Skills</a></li>
+                        {% endif %}
+                        <li><a href="#portfolio" class="scroll-link">Example</a></li>
+                        <li><a href="#teamInformation" class="scroll-link">Team Information</a></li>
+                    </ul>
+                </div>
+                <!--/.navbar-collapse-->
+            </nav>
+            <!--/.navbar-->
+        </div>
+        <!--/.container-->
+    </header>
+    <!--/.header-->
+    <div id="#top"></div>
+    <section id="home">
+        <div class="banner-container">
+            <img src="../static/images/my-banner-bg.jpg" alt="banner" />
+            <div class="container banner-content">
+                <div id="da-slider" class="da-slider">
+                    <div class="da-slide">
+                        <h2>Statistics of network</h2>
+                        <p>Such as cluster coefficient and betweenness</p>
+                        <div class="da-img"></div>
+                    </div>
+                    <div class="da-slide">
+                        <h2>Community detection</h2>
+                        <p>Getting the community according the construct of network</p>
+                        <div class="da-img"></div>
+                    </div>
+				<!--  <nav class="da-arrows">
+                        <span class="da-arrows-prev"></span>
+                        <span class="da-arrows-next"></span>
+                    </nav> -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="introText">
+        <div class="container">
+            <div class="text-center">
+            <h1>Our team analyzes the statistics of network and the community of network</h1>
+              <p>we can calculate network properties such as node degree and cluster coefficient and recognize the groups of nodes (community detection) the according the construct of network.</p>
+            </div>
+        </div>
+
+    </section>
+
+    <!--process-->
+    <section id="process" class="secPad">
+    	<div class="container">
+           <div class="heading text-center">
+                <!-- Heading -->
+                <h2>The process of using</h2>
+                <p>You can follow the process to analyse your network</p>
+            </div>
+        <div id="timeline"><div class="row timeline-movement timeline-movement-top">
+        <div class="timeline-badge timeline-future-movement">
+            <a href="#">
+                <span class="glyphicon glyphicon-plus"></span>
+            </a>
+        </div>
+        <div class="timeline-badge timeline-filter-movement">
+            <a href="#">
+                <span class="glyphicon glyphicon-time"></span>
+            </a>
+        </div>
+
+    </div>
+    <div class="row timeline-movement">
+
+        <div class="timeline-badge">
+            <span class="timeline-balloon-date-day">1</span>
+            <span class="timeline-balloon-date-month">step1</span>
+        </div>
+
+
+        <div class="col-sm-6  timeline-item">
+            <div class="row">
+                <div class="col-sm-11">
+                    <div class="timeline-panel credits">
+                        <ul class="timeline-panel-ul">
+                            <li><span class="importo">Upload your network file</span></li>
+                            <li><span class="causale">In this file,there are two connected node with each other in every row  . </span> </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6  timeline-item">
+            <div class="row">
+                <div class="col-sm-offset-1 col-sm-11">
+                    <div class="timeline-panel debits">
+                        <ul class="timeline-panel-ul">
+                            <li><span class="importo">Note</span></li>
+                            <li><span class="causale">The network file is undirected graph. </span> </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--due -->
+     <div class="row timeline-movement">
+
+        <div class="timeline-badge">
+            <span class="timeline-balloon-date-day">2</span>
+            <span class="timeline-balloon-date-month">step2</span>
+        </div>
+
+
+        <div class="col-sm-6  timeline-item">
+            <div class="row">
+                <div class="col-sm-11">
+                    <div class="timeline-panel credits">
+                        <ul class="timeline-panel-ul">
+                            <li><span class="importo">Confirm the information of uploaded file </span></li>
+                            <li><span class="causale">You need to confirm the network file is useful for network analysis. </span> </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6  timeline-item">
+            <div class="row">
+                <div class="col-sm-offset-1 col-sm-11">
+                    <div class="timeline-panel debits">
+                        <ul class="timeline-panel-ul">
+                            <li><span class="importo">Note</span></li>
+                            <li><span class="causale">We will return the information of file. </span> </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--due -->
+    <div class="row timeline-movement">
+
+
+        <div class="timeline-badge">
+            <span class="timeline-balloon-date-day">3</span>
+            <span class="timeline-balloon-date-month">step3</span>
+        </div>
+
+
+
+        <div class="col-sm-6  timeline-item">
+            <div class="row">
+                <div class="col-sm-11">
+                    <div class="timeline-panel credits">
+                        <ul class="timeline-panel-ul">
+                            <li><span class="importo">Start to analyse</span></li>
+                            <li><span class="causale">Please click the analysis button to analyse your network after confirming your file. </span> </li>
+
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="row timeline-movement">
+
+
+        <div class="timeline-badge">
+            <span class="timeline-balloon-date-day">4</span>
+            <span class="timeline-balloon-date-month">Step4</span>
+        </div>
+
+
+        <div class="col-sm-6  timeline-item">
+            <div class="row">
+                <div class="col-sm-11">
+                    <div class="timeline-panel credits">
+                        <ul class="timeline-panel-ul">
+                            <li><span class="importo">Return the result of analysis</span></li>
+                            <li><span class="causale">We will return the result of analysis including  statistic information and community detection according your network file. </span> </li>
+
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    </div>
+    </div>
+
+    </section>
+    <!--Quote-->
+    {% if isGetFile %}
+    <form action="result_display" method = "post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <section id="operation" class="bg-parlex">
+            <div class="parlex-back">
+                <div class="container secPad text-center">
+                    <h2>Upload successful , please confirm your network file.</h2>
+                        <p hidden>
+                            <input name = "network_path" value={{path}}>
+                        </p>
+                    <input class="btn cta-button" type="submit" value="Confirm"/>
+                </div>
+
+            <!--/.container-->
+            </div>
+        </section>
+    </form>
+    {% else %}
+    <form method = "post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <section id="operation" class="bg-parlex">
+            <div class="parlex-back">
+                <div class="container secPad text-center">
+				    <h2>Pleas upload your network file.</h2>
+                    <input name = "file" type="file"/>
+                    <input class="btn cta-button" type="submit" value="Upload file"/>
+                </div>
+            <!--/.container-->
+            </div>
+        </section>
+    </form>
+    {% endif %}
+
+    {% if isGetFile == True %}
+    <!--About-->
+    <section id="fileInformation" class="secPad">
+        <div class="container">
+            <div class="heading text-center">
+                <!-- Heading -->
+                <h2>File information</h2>
+                <p>You will observe the basic information of network</p>
+            </div>
+            <div class="row">
+                <!-- item -->
+                <div class="col-md-7 text-center tileBox">
+                   <div class="txtHead"> <i class="fa fa-desktop"></i>
+                    <h3>The parameter of network <span class="id-color">{{ filename }}</span></h3></div>
+                    <p>The number of edges is: {{ edges }}.</p>
+                    <p>The number of nodes is: {{ nodes }}.</p>
+                </div>
+                <!-- end: -->
+
+                <!-- item -->
+                <div class="col-md-7 text-center tileBox">
+                    <div class="txtHead"><i class="fa fa-css3"></i>
+                    <h3>The construct of network <span class="id-color">{{ filename }}</span></h3></div>
+                    <img src="../static/images/network/network.png" alt="" />
+                </div>
+                <!-- end: -->
+
+                <!-- item -->
+                <div class="col-md-7 text-center tileBox">
+                    <div class="txtHead"><i class="fa fa-lightbulb-o"></i>
+                    <h3>The information of file <span class="id-color">{{ filename }}</span></h3></div>
+                    <p>The size of file is: {{ fsize }}KB.</p>
+                </div>
+                <!-- end: -->
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+    {% if isAnalysis == True %}
+    <!--Skills-->
+    <section id="skills" class="secPad white">
+    	<div class="container">
+        <div class="heading text-center">
+                <!-- Heading -->
+                <h2>My Skills</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing</p>
+            </div>
+        	<div class="row">
+                <div class="col-sm-6">
+                    <h2>Programming <strong>Skills</strong></h2>
+                    <p class="mrgBtm20">
+                        It takes knowledge, smart work, and dedication to make great ideas come to life. I have been helping make great ideas happen for the past 7 years and am always ready for new challenges.
+                
+                    </p>
+                    <div class="row">
+                        <div class="col-md-2 skilltitle">HTML5</div>
+                        <div class="col-md-8">
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;">
+                                    <span class="sr-only">90% Complete</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2 skilltitle">CSS/CC3</div>
+                        <div class="col-md-8">
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;">
+                                    <span class="sr-only">90% Complete</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2 skilltitle">JavaScript</div>
+                        <div class="col-md-8">
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;">
+                                    <span class="sr-only">80% Complete</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2 skilltitle">jQuery/Ajax</div>
+                        <div class="col-md-8">
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;">
+                                    <span class="sr-only">90% Complete</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>      
+                </div>
+                <div class="col-sm-6">
+                    <h2>Designing <strong>Skills</strong></h2>
+                    <p class="mrgBtm20">
+                        Problem solving is not always about sitting in a board room talking about the way things should be done. I have a strong background in UI design which allows me to think on my feet and act upon it.
+                
+                    </p>
+                    <div class="row">
+                        <div class="col-md-2 skilltitle">Photoshop</div>
+                        <div class="col-md-8">
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;">
+                                    <span class="sr-only">90% Complete</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2 skilltitle">Illustrator</div>
+                        <div class="col-md-8">
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;">
+                                    <span class="sr-only">80% Complete</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-2 skilltitle">Indesign</div>
+                        <div class="col-md-8">
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;">
+                                    <span class="sr-only">75% Complete</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </section>
+    {% endif %}
+    
+  
+   <!--Portfolio-->
+    <section id="portfolio" class="page-section section appear clearfix secPad">
+        <div class="container">
+
+            <div class="heading text-center">
+                <!-- Heading -->
+                <h2>Example</h2>
+                <p>We would like to show some of the result of analysis.</p>
+            </div>
+
+            <div class="row">
+                <nav id="filter" class="col-md-12 text-center">
+                    <ul>
+                        <li><a href="#" class="current btn-theme btn-small" data-filter="*">All</a></li>
+                        <li><a href="#" class="btn-theme btn-small" data-filter=".construct">The construct of network</a></li>
+                        <li><a href="#" class="btn-theme btn-small" data-filter=".degree">The distribution of degree</a></li>
+                        <li><a href="#" class="btn-theme btn-small" data-filter=".modularity">Modularity detection</a></li>
+                    </ul>
+                </nav>
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="portfolio-items isotopeWrapper clearfix" id="3">
+
+                            <article class="col-sm-4 isotopeItem construct">
+                                <div class="portfolio-item">
+                                    <img src="../static/images/example/0.edges_network.png" alt="" />
+                                    <div class="portfolio-desc align-center">
+                                        <div class="folio-info">
+                                            <a href="../static/images/example/0.edges_network.png" class="fancybox">
+                                                <h5>The construct of network 0.edges</h5>
+                                                <i class="fa fa-arrows-alt fa-2x"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="col-sm-4 isotopeItem degree">
+                                <div class="portfolio-item">
+                                    <img src="../static/images/example/0.edges_distribution_of_degree.png" alt="" />
+                                    <div class="portfolio-desc align-center">
+                                        <div class="folio-info">
+                                            <a href="../static/images/example/0.edges_distribution_of_degree.png" class="fancybox">
+                                                <h5>The distribution of 0.edges degree</h5>
+                                                <i class="fa fa-arrows-alt fa-2x"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+
+                            <article class="col-sm-4 isotopeItem degree">
+                                <div class="portfolio-item">
+                                    <img src="../static/images/example/107.edges_distribution_of_degree.png" alt="" />
+                                    <div class="portfolio-desc align-center">
+                                        <div class="folio-info">
+                                            <a href="../static/images/example/107.edges_distribution_of_degree.png" class="fancybox">
+                                                <h5>The distribution of 107.edges degree</h5>
+                                                <i class="fa fa-arrows-alt fa-2x"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="col-sm-4 isotopeItem modularity">
+                                <div class="portfolio-item">
+                                    <img src="../static/images/example/0.edges_most_modularity.png" alt="" />
+                                    <div class="portfolio-desc align-center">
+                                        <div class="folio-info">
+                                            <a href="../static/images/example/0.edges_most_modularity.png" class="fancybox">
+                                                <h5>The most modularity of 0.edges</h5>
+                                                <i class="fa fa-arrows-alt fa-2x"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="col-sm-4 isotopeItem degree">
+                                <div class="portfolio-item">
+                                    <img src="../static/images/example/348.edges_distribution_of_degree.png" alt="" />
+                                    <div class="portfolio-desc align-center">
+                                        <div class="folio-info">
+                                            <a href="../static/images/example/348.edges_distribution_of_degree.png" class="fancybox">
+                                                <h5>The distribution of 348.edges degree</h5>
+                                                <i class="fa fa-arrows-alt fa-2x"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="col-sm-4 isotopeItem construct">
+                                <div class="portfolio-item">
+                                    <img src="../static/images/example/107.edges_network.png" alt="" />
+                                    <div class="portfolio-desc align-center">
+                                        <div class="folio-info">
+                                            <a href="../static/images/example/107.edges_network.png" class="fancybox">
+                                                <h5>The construct of network 107.edges</h5>
+                                                <i class="fa fa-arrows-alt fa-2x"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="col-sm-4 isotopeItem modularity">
+                                <div class="portfolio-item">
+                                    <img src="../static/images/example/348.edges_most_modularity.png" alt="" />
+                                    <div class="portfolio-desc align-center">
+                                        <div class="folio-info">
+                                            <a href="../static/images/example/348.edges_most_modularity.png" class="fancybox">
+                                                <h5>The most modularity of 348.edges</h5>
+                                                <i class="fa fa-arrows-alt fa-2x"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="col-sm-4 isotopeItem degree">
+                                <div class="portfolio-item">
+                                    <img src="../static/images/example/414.edges_distribution_of_degree.png" alt="" />
+                                    <div class="portfolio-desc align-center">
+                                        <div class="folio-info">
+                                            <a href="../static/images/example/414.edges_distribution_of_degree.png" class="fancybox">
+                                                <h5>The distribution of 414.edges degree</h5>
+                                                <i class="fa fa-arrows-alt fa-2x"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="col-sm-4 isotopeItem modularity">
+                                <div class="portfolio-item">
+                                    <img src="../static/images/example/414.edges.most_modularity.png" alt="" />
+                                    <div class="portfolio-desc align-center">
+                                        <div class="folio-info">
+                                            <a href="../static/images/example/414.edges.most_modularity.png" class="fancybox">
+                                                <h5>The most modularity of 414.edges</h5>
+                                                <i class="fa fa-arrows-alt fa-2x"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+	<!--teamInformation -->
+    <section id="teamInformation" class="page-section secPad">
+        <div class="container">
+
+            <div class="row">
+                <div class="heading text-center">
+                    <!-- Heading -->
+                    <h2>Team Information!</h2>
+                    <p>This part includes the information of team member.</p>
+                </div>
+            </div>
+
+        <div class="row mrgn30"> 
+        <div class="col-sm-12 col-md-8">
+         		<!--NOTE: Update your email Id in "contact_me.php" file in order to receive emails from your contact form-->
+		<div class="col-sm-12 col-md-4">
+            <h4>Team member:</h4>
+                <p>name:罗楚耀<br></p>
+                <p>student number:17B951037<br></p>
+        </div>
+
+            <div class="col-sm-12 col-md-4">
+            <h4>Team member:</h4>
+                <p>name:任奕<br></p>
+                <p>student number:17S051008<br></p>
+        </div>
+            <div class="col-sm-12 col-md-4">
+            <h4>Team member:</h4>
+                <p>name:彭丹<br></p>
+                <p>student number:17S051058<br></p>
+        </div>
+
+        </div> 
+
+    </div>
+        </div>
+        <!--/.container-->
+    </section>
+
+    <!--/.page-section-->
+    <!--<section class="copyright">-->
+        <!--<div class="container">-->
+            <!--<div class="row">-->
+                <!--<div class="col-sm-12 text-center">-->
+                    <!--Copyright &copy; 2016.Company name All rights reserved.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--&lt;!&ndash; / .row &ndash;&gt;-->
+        <!--</div>-->
+    <!--</section>-->
+    <a href="#top" class="topHome"><i class="fa fa-chevron-up fa-2x"></i></a>
+
+    <!--[if lte IE 8]><script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script><![endif]-->
+    <script src="../static/js/modernizr-latest.js"></script>
+    <script src="../static/js/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <script src="../static/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../static/js/jquery.isotope.min.js" type="text/javascript"></script>
+    <script src="../static/js/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+    <script src="../static/js/jquery.nav.js" type="text/javascript"></script>
+    <script src="../static/js/jquery.cslider.js" type="text/javascript"></script>
+ <script src="../static/contact/jqBootstrapValidation.js"></script>
+ <script src="../static/contact/contact_me.js"></script>
+
+    <script src="../static/js/custom.js" type="text/javascript"></script>
+    <script src="../static/js/owl-carousel/owl.carousel.js"></script>
+</body>
+</html>

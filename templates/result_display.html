@@ -1,0 +1,441 @@
+<!doctype html>
+<!--[if IE 7 ]>    <html lang="en-gb" class="isie ie7 oldie no-js"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en-gb" class="isie ie8 oldie no-js"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en-gb" class="isie ie9 no-js"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en-gb" class="no-js">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!--[if lt IE 9]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <![endif]-->
+    <title>Social Network Analysis</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lte IE 8]>
+		<script type="text/javascript" src="http://explorercanvas.googlecode.com/svn/trunk/excanvas.js"></script>
+	<![endif]-->
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../static/css/isotope.css" media="screen" />
+    <link rel="stylesheet" href="../static/js/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="../static/css/da-slider.css" />
+    <!-- Owl Carousel Assets -->
+    <link href="../static/js/owl-carousel/owl.carousel.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/styles.css" />
+    <!-- Font Awesome -->
+    <link href="../static/font/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="navbar navbar-inverse" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" id="nav-toggle" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="/home" class="navbar-brand scroll-top logo"><b>Social Network</b></a>
+                </div>
+                <!--/.navbar-header-->
+                <div id="main-nav" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav" id="mainNav">
+                        <li class="active"><a href="#operation" class="scroll-link">Operation</a></li>
+                        <li><a href="#result" class="scroll-link">Result</a></li>
+                        <li><a href="#portfolio" class="scroll-link">Example</a></li>
+                        <li><a href="#teamInformation" class="scroll-link">Team Information</a></li>
+                    </ul>
+                </div>
+                <!--/.navbar-collapse-->
+            </nav>
+            <!--/.navbar-->
+        </div>
+        <!--/.container-->
+    </header>
+    <!--/.header-->
+    <div id="#top"></div>
+
+    <!--Quote-->
+
+    <form action="result_display" method = "post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <section id="operation" class="bg-parlex">
+            <div class="parlex-back">
+                <div class="container secPad text-center">
+                    <h2>Analysis successful,you can check the result of analysis</h2>
+                        <p hidden>
+                            <input name = "network_path" value={{path}}>
+                        </p>
+                </div>
+
+            <!--/.container-->
+            </div>
+        </section>
+    </form>
+
+
+    <!--Skills-->
+    <section id="result" class="secPad white">
+    	<div class="container">
+        <div class="heading text-center">
+                <!-- Heading -->
+                <h2>Analysis of network</h2>
+                <p>we calculate some parameters of network to analysis the property of network</p>
+            </div>
+        	<div class="row">
+                <div class="col-sm-6">
+                    <h2>Statistic <strong>Parameter</strong></h2>
+                    <p class="mrgBtm20">
+                        we use libaray of snap to calculate the parameter of undirectied network graph
+                    </p>
+
+                    <div class="row">
+                        <div class="col-md-6 skilltitle">The node with max degree:</div>
+                        <div class="col-md-4">
+                            <div class="col-md-2 skilltitle">{{NId}}</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 skilltitle">The number of triads:</div>
+                        <div class="col-md-4">
+                            <div class="col-md-2 skilltitle">{{Triads}}</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 skilltitle">The clustering coefficient:</div>
+                        <div class="col-md-4">
+                            <div class="col-md-2 skilltitle">{{CC}}</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 skilltitle">The diameter(100):</div>
+                        <div class="col-md-4">
+                            <div class="col-md-2 skilltitle">{{D}}</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 skilltitle">The effective diameter(100):</div>
+                        <div class="col-md-4">
+                            <div class="col-md-2 skilltitle">{{ED}}</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 skilltitle">The number of component:</div>
+                        <div class="col-md-4">
+                            <div class="col-md-2 skilltitle">{{lengthOfComponet}}</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 skilltitle">The number of nodes in max component:</div>
+                        <div class="col-md-4">
+                            <div class="col-md-2 skilltitle">{{MxNodes}}</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 skilltitle">The number of edges in max component:</div>
+                        <div class="col-md-4">
+                            <div class="col-md-2 skilltitle">{{MxEdges}}</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 skilltitle">The number of edges in max component:</div>
+                        <div class="col-md-4">
+                            <div class="col-md-2 skilltitle">{{MxEdges}}</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 skilltitle">The modularity:</div>
+                        <div class="col-md-4">
+                            <div class="col-md-2 skilltitle">{{modularity}}</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 skilltitle">The number of community:</div>
+                        <div class="col-md-4">
+                            <div class="col-md-2 skilltitle">{{lengthOfCommunity}}</div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-sm-6">
+                    <h2>The distribution of <strong>Degree</strong></h2>
+                    <p class="mrgBtm20">
+                        This picture represents the distribution of degree for your social network
+                    </p>
+                    <img src="../static/images/network/distributionOfDegree.png" alt="" />
+                </div>
+
+                </div>
+
+
+
+
+                <div class="heading text-center">
+
+                    <h2>Progress Bar {{res}}</h2>
+                    <p>The progress bar of modularity detection</p>
+
+                    <div class="row">
+                        <div class="col-md-2 skilltitle">progress</div>
+                        <div class="col-md-8">
+                            <div id = "prog_out" class="progress">
+                                <div id = "prog_in" class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+                                    <span class="sr-only">90% Complete</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <input class="btn cta-button" type="button" value="Detection" onclick="submit_query()"/>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h2>The linear chart of <strong>modularity</strong></h2>
+                                <p class="mrgBtm20">
+                                x represents the number of deleted edges,y represents the modularity of the remain Graph.
+                                </p>
+                                <img id = pic1 src="" alt="" />
+                        </div>
+
+                        <div class="col-sm-6">
+                            <h2>The construct of <strong>the most modularity</strong></h2>
+                                <p class="mrgBtm20">
+                                The picture shows the construct of the Graph when the modularity become the largest
+                                </p>
+                                <img id = pic2 src="" alt="" />
+                        </div>
+
+                    </div>
+                </div>
+
+                <!--<div class="heading text-center">-->
+
+                    <!--<label id="label">renyisimida </label>-->
+
+                <!--</div>-->
+            </div>
+    </section>
+
+
+
+      <!--Portfolio-->
+    <section id="portfolio" class="page-section section appear clearfix secPad">
+        <div class="container">
+
+            <div class="heading text-center">
+                <!-- Heading -->
+                <h2>Example</h2>
+                <p>We would like to show some of the result of analysis.</p>
+            </div>
+
+            <div class="row">
+                <nav id="filter" class="col-md-12 text-center">
+                    <ul>
+                        <li><a href="#" class="current btn-theme btn-small" data-filter="*">All</a></li>
+                        <li><a href="#" class="btn-theme btn-small" data-filter=".construct">The construct of network</a></li>
+                        <li><a href="#" class="btn-theme btn-small" data-filter=".degree">The distribution of degree</a></li>
+                        <li><a href="#" class="btn-theme btn-small" data-filter=".modularity">Modularity detection</a></li>
+                    </ul>
+                </nav>
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="portfolio-items isotopeWrapper clearfix" id="3">
+
+                            <article class="col-sm-4 isotopeItem construct">
+                                <div class="portfolio-item">
+                                    <img src="../static/images/example/0.edges_network.png" alt="" />
+                                    <div class="portfolio-desc align-center">
+                                        <div class="folio-info">
+                                            <a href="../static/images/example/0.edges_network.png" class="fancybox">
+                                                <h5>The construct of network 0.edges</h5>
+                                                <i class="fa fa-arrows-alt fa-2x"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="col-sm-4 isotopeItem degree">
+                                <div class="portfolio-item">
+                                    <img src="../static/images/example/0.edges_distribution_of_degree.png" alt="" />
+                                    <div class="portfolio-desc align-center">
+                                        <div class="folio-info">
+                                            <a href="../static/images/example/0.edges_distribution_of_degree.png" class="fancybox">
+                                                <h5>The distribution of 0.edges degree</h5>
+                                                <i class="fa fa-arrows-alt fa-2x"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+
+                            <article class="col-sm-4 isotopeItem degree">
+                                <div class="portfolio-item">
+                                    <img src="../static/images/example/107.edges_distribution_of_degree.png" alt="" />
+                                    <div class="portfolio-desc align-center">
+                                        <div class="folio-info">
+                                            <a href="../static/images/example/107.edges_distribution_of_degree.png" class="fancybox">
+                                                <h5>The distribution of 107.edges degree</h5>
+                                                <i class="fa fa-arrows-alt fa-2x"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="col-sm-4 isotopeItem modularity">
+                                <div class="portfolio-item">
+                                    <img src="../static/images/example/0.edges_most_modularity.png" alt="" />
+                                    <div class="portfolio-desc align-center">
+                                        <div class="folio-info">
+                                            <a href="../static/images/example/0.edges_most_modularity.png" class="fancybox">
+                                                <h5>The most modularity of 0.edges</h5>
+                                                <i class="fa fa-arrows-alt fa-2x"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="col-sm-4 isotopeItem degree">
+                                <div class="portfolio-item">
+                                    <img src="../static/images/example/348.edges_distribution_of_degree.png" alt="" />
+                                    <div class="portfolio-desc align-center">
+                                        <div class="folio-info">
+                                            <a href="../static/images/example/348.edges_distribution_of_degree.png" class="fancybox">
+                                                <h5>The distribution of 348.edges degree</h5>
+                                                <i class="fa fa-arrows-alt fa-2x"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="col-sm-4 isotopeItem construct">
+                                <div class="portfolio-item">
+                                    <img src="../static/images/example/107.edges_network.png" alt="" />
+                                    <div class="portfolio-desc align-center">
+                                        <div class="folio-info">
+                                            <a href="../static/images/example/107.edges_network.png" class="fancybox">
+                                                <h5>The construct of network 107.edges</h5>
+                                                <i class="fa fa-arrows-alt fa-2x"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="col-sm-4 isotopeItem modularity">
+                                <div class="portfolio-item">
+                                    <img src="../static/images/example/348.edges_most_modularity.png" alt="" />
+                                    <div class="portfolio-desc align-center">
+                                        <div class="folio-info">
+                                            <a href="../static/images/example/348.edges_most_modularity.png" class="fancybox">
+                                                <h5>The most modularity of 348.edges</h5>
+                                                <i class="fa fa-arrows-alt fa-2x"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="col-sm-4 isotopeItem degree">
+                                <div class="portfolio-item">
+                                    <img src="../static/images/example/414.edges_distribution_of_degree.png" alt="" />
+                                    <div class="portfolio-desc align-center">
+                                        <div class="folio-info">
+                                            <a href="../static/images/example/414.edges_distribution_of_degree.png" class="fancybox">
+                                                <h5>The distribution of 414.edges degree</h5>
+                                                <i class="fa fa-arrows-alt fa-2x"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="col-sm-4 isotopeItem modularity">
+                                <div class="portfolio-item">
+                                    <img src="../static/images/example/414.edges.most_modularity.png" alt="" />
+                                    <div class="portfolio-desc align-center">
+                                        <div class="folio-info">
+                                            <a href="../static/images/example/414.edges.most_modularity.png" class="fancybox">
+                                                <h5>The most modularity of 414.edges</h5>
+                                                <i class="fa fa-arrows-alt fa-2x"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+	<!--teamInformation -->
+    <section id="teamInformation" class="page-section secPad">
+        <div class="container">
+
+            <div class="row">
+                <div class="heading text-center">
+                    <!-- Heading -->
+                    <h2>Team Information!</h2>
+                    <p>This part includes the information of team member.</p>
+                </div>
+            </div>
+
+        <div class="row mrgn30">
+        <div class="col-sm-12 col-md-8">
+         		<!--NOTE: Update your email Id in "contact_me.php" file in order to receive emails from your contact form-->
+		<div class="col-sm-12 col-md-4">
+            <h4>Team member:</h4>
+                <p>name:罗楚耀<br></p>
+                <p>student number:17B951037<br></p>
+        </div>
+
+            <div class="col-sm-12 col-md-4">
+            <h4>Team member:</h4>
+                <p>name:任奕<br></p>
+                <p>student number:17S051008<br></p>
+        </div>
+            <div class="col-sm-12 col-md-4">
+            <h4>Team member:</h4>
+                <p>name:彭丹<br></p>
+                <p>student number:17S051058<br></p>
+        </div>
+
+        </div>
+
+    </div>
+        </div>
+        <!--/.container-->
+    </section>
+
+    <!--/.page-section-->
+    <!--<section class="copyright">-->
+        <!--<div class="container">-->
+            <!--<div class="row">-->
+                <!--<div class="col-sm-12 text-center">-->
+                    <!--Copyright &copy; 2016.Company name All rights reserved.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--&lt;!&ndash; / .row &ndash;&gt;-->
+        <!--</div>-->
+    <!--</section>-->
+    <a href="#top" class="topHome"><i class="fa fa-chevron-up fa-2x"></i></a>
+
+    <!--[if lte IE 8]><script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script><![endif]-->
+    <script src="../static/js/myjs.js" type="text/javascript"></script>
+    <script src="../static/js/modernizr-latest.js"></script>
+    <script src="../static/js/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <script src="../static/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../static/js/jquery.isotope.min.js" type="text/javascript"></script>
+    <script src="../static/js/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+    <script src="../static/js/jquery.nav.js" type="text/javascript"></script>
+    <script src="../static/js/jquery.cslider.js" type="text/javascript"></script>
+ <script src="../static/contact/jqBootstrapValidation.js"></script>
+ <script src="../static/contact/contact_me.js"></script>
+
+    <script src="../static/js/custom.js" type="text/javascript"></script>
+    <script src="../static/js/owl-carousel/owl.carousel.js"></script>
+</body>
+</html>
